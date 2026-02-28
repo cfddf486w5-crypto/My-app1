@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Complément WMS – Préférences (Phase 1)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root{
+      --primary:#0072C6;
+      --bg:#F5F6F8;
+      --card:#ffffff;
+      --border:#E1E4E8;
+      --text:#111827;
+      --muted:#6b7280;
+      --ok:#10b981;
+      --accent:#7c3aed;
+    }
+    body[data-theme="dark"]{
+      --primary:#1e3a8a;
+      --bg:#0f172a;
+      --card:#111827;
+      --border:#334155;
+      --text:#f8fafc;
+      --muted:#cbd5e1;
+      --ok:#22c55e;
+      --accent:#a78bfa;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      transition:background .2s,color .2s;
+    }
+    header{
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      color:#fff;
+      padding:1.1rem 1rem;
+    }
+    header h1{margin:0;font-size:1.2rem;}
+    header p{margin:0.35rem 0 0;font-size:0.85rem;opacity:.95;}
+    main{max-width:1000px;margin:0 auto;padding:0.9rem;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0.8rem;}
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      border:1px solid var(--border);
+      padding:0.9rem 1rem;
+      margin-bottom:0.9rem;
+      box-shadow:0 1px 4px rgba(0,0,0,.08);
+    }
+    h2{margin:0 0 .5rem;font-size:1rem;}
+    .muted{color:var(--muted);font-size:.82rem;}
+    .line{display:flex;justify-content:space-between;align-items:center;gap:.7rem;padding:.3rem 0;}
+    select,input[type="text"],input[type="number"]{
+      border:1px solid var(--border);
+      border-radius:8px;
+      padding:.45rem .55rem;
+      background:transparent;
+      color:var(--text);
+      width:100%;
+    }
+    .pill{display:inline-block;padding:.2rem .5rem;border-radius:999px;font-size:.72rem;border:1px solid var(--border);}
+    .btn{
+      border:none;
+      border-radius:9px;
+      padding:.52rem .8rem;
+      font-weight:600;
+      cursor:pointer;
+      background:var(--primary);
+      color:#fff;
+    }
+    .btn.secondary{background:#334155;}
+    .btn.good{background:var(--ok);}
+    .actions{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:.6rem;}
+    .hero{
+      border:1px dashed var(--border);
+      border-radius:10px;
+      padding:.7rem;
+      background:rgba(124,58,237,.07);
+      font-size:.84rem;
+    }
+    .mission{
+      margin-top:.5rem;
+      border-left:4px solid var(--ok);
+      padding:.45rem .65rem;
+      background:rgba(16,185,129,.08);
+      border-radius:8px;
+      font-size:.83rem;
+    }
+    footer{text-align:center;color:var(--muted);font-size:.75rem;padding:0 0 1rem;}
+  </style>
+</head>
+<body>
+<header>
+  <h1>⚙️ Préférences personnelles – Phase 1</h1>
+  <p>Version locale, rapide et fun: ton cockpit perso pour bosser plus smooth.</p>
+</header>
+
+<main>
+  <section class="card">
+    <h2>🧠 Ambiance de travail</h2>
+    <p class="muted">Tu ajustes, on sauvegarde automatiquement dans ton navigateur.</p>
+    <div class="grid">
+      <div>
+        <label class="muted" for="theme">Thème visuel</label>
+        <select id="theme">
+          <option value="light">Clair</option>
+          <option value="dark">Sombre</option>
+        </select>
+      </div>
+      <div>
+        <label class="muted" for="energy">Niveau d’énergie</label>
+        <select id="energy">
+          <option value="focus">Focus silencieux</option>
+          <option value="normal">Normal terrain</option>
+          <option value="beast">Mode beast ⚡</option>
+        </select>
+      </div>
+      <div>
+        <label class="muted" for="name">Surnom opérateur</label>
+        <input id="name" type="text" placeholder="ex: Capitaine Bin" maxlength="28">
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn good" id="save">Sauvegarder</button>
+      <button class="btn secondary" id="reset">Reset</button>
+      <span class="pill" id="status">Prêt</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🎯 Objectif du shift</h2>
+    <div class="grid">
+      <div>
+        <label class="muted" for="moves">Déplacements cibles</label>
+        <input id="moves" type="number" min="0" max="500" value="40">
+      </div>
+      <div>
+        <label class="muted" for="zeroPick">Max zero-pick toléré</label>
+        <input id="zeroPick" type="number" min="0" max="50" value="2">
+      </div>
+      <div>
+        <label class="muted" for="priority">Priorité du jour</label>
+        <select id="priority">
+          <option value="consolidation">Consolidation</option>
+          <option value="picking">Picking rapide</option>
+          <option value="inventory">Stabilité inventaire</option>
+        </select>
+      </div>
+    </div>
+    <div class="mission" id="mission">Mission du jour: sécuriser les zones critiques et garder la fluidité.</div>
+  </section>
+
+  <section class="card">
+    <h2>🚀 Pourquoi cette phase 1</h2>
+    <div class="hero">
+      Une base locale qui respecte ton flow réel: simple, rapide, sans backend.
+      C’est parfait pour tester les préférences terrain avant d’aller vers une phase 2 connectée.
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 – Complément WMS – Paramètres (Phase 1)</footer>
+
+<script>
+  const els = {
+    theme: document.getElementById('theme'),
+    energy: document.getElementById('energy'),
+    name: document.getElementById('name'),
+    moves: document.getElementById('moves'),
+    zeroPick: document.getElementById('zeroPick'),
+    priority: document.getElementById('priority'),
+    mission: document.getElementById('mission'),
+    status: document.getElementById('status')
+  };
+
+  const KEY = 'wmsPreferencesV1';
+
+  function buildMission(data) {
+    const nick = data.name?.trim() || 'Opérateur';
+    const tone = data.energy === 'beast' ? 'mode attaque' : data.energy === 'focus' ? 'mode précision' : 'mode stable';
+    return `${nick}: ${data.moves} déplacements ciblés, max ${data.zeroPick} zero-pick, priorité ${data.priority}. Aujourd’hui = ${tone}.`;
+  }
+
+  function applyTheme(theme) {
+    document.body.dataset.theme = theme;
+  }
+
+  function collect() {
+    return {
+      theme: els.theme.value,
+      energy: els.energy.value,
+      name: els.name.value,
+      moves: Number(els.moves.value || 0),
+      zeroPick: Number(els.zeroPick.value || 0),
+      priority: els.priority.value
+    };
+  }
+
+  function render(data) {
+    applyTheme(data.theme);
+    els.mission.textContent = buildMission(data);
+  }
+
+  function save() {
+    const data = collect();
+    localStorage.setItem(KEY, JSON.stringify(data));
+    render(data);
+    els.status.textContent = '✅ Sauvé';
+  }
+
+  function load() {
+    const defaults = { theme: 'light', energy: 'normal', name: '', moves: 40, zeroPick: 2, priority: 'consolidation' };
+    const data = { ...defaults, ...JSON.parse(localStorage.getItem(KEY) || '{}') };
+    Object.keys(data).forEach((k) => {
+      if (els[k]) els[k].value = data[k];
+    });
+    render(data);
+  }
+
+  document.getElementById('save').addEventListener('click', save);
+  document.getElementById('reset').addEventListener('click', () => {
+    localStorage.removeItem(KEY);
+    load();
+    els.status.textContent = '♻️ Reset OK';
+  });
+
+  ['theme', 'energy', 'name', 'moves', 'zeroPick', 'priority'].forEach((id) => {
+    els[id].addEventListener('input', () => {
+      const data = collect();
+      render(data);
+      els.status.textContent = 'En cours…';
+    });
+  });
+
+  load();
+</script>
+</body>
+</html>
