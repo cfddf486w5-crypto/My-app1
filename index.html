@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Complément WMS – Accueil</title>
+  <style>
+    :root { --bg:#f5f6f8; --card:#fff; --text:#111827; --muted:#6b7280; --primary:#0072c6; --border:#e5e7eb; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; background:var(--bg); color:var(--text); }
+    header { background:var(--primary); color:white; padding:1rem; }
+    main { max-width:980px; margin:0 auto; padding:1rem; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:.8rem; }
+    a.card { text-decoration:none; color:inherit; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:.9rem; display:block; }
+    .card h2 { margin:0 0 .4rem; font-size:1rem; }
+    .muted { color:var(--muted); font-size:.85rem; margin:0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Complément WMS</h1>
+    <p>Portail des pages locales</p>
+  </header>
+  <main>
+    <div class="grid">
+      <a class="card" href="./about.html"><h2>À propos</h2><p class="muted">Vision et objectifs du projet.</p></a>
+      <a class="card" href="./bins.html"><h2>Bins & capacités</h2><p class="muted">Référentiel des types de bins.</p></a>
+      <a class="card" href="./regles.html"><h2>Règles opérationnelles</h2><p class="muted">Règles métier de consolidation et inventaire.</p></a>
+      <a class="card" href="./historique.html"><h2>Historique</h2><p class="muted">Décisions et évolutions importantes.</p></a>
+      <a class="card" href="./parametres.html"><h2>Paramètres</h2><p class="muted">Préférences et mission du shift.</p></a>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+/* Shared navigation styles for Complément WMS pages */
+.wms-nav {
+  background: #0f172a;
+  color: #e5e7eb;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wms-nav a {
+  color: #e5e7eb;
+  text-decoration: none;
+}
+
+.wms-nav a:hover {
+  text-decoration: underline;
+}
+
+.wms-nav-title {
+  font-weight: 600;
+}
+
+.wms-nav-links {
+  display: flex;
+  gap: 0.8rem;
+}
